@@ -1,0 +1,138 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+body {
+    font-family: helvetica, verdana, arial, sans-serif !important;
+    color: #000000;
+}
+
+a.navbar-brand {
+    color: #000 !important;
+    font-weight: bold;
+    padding: 26.5px 15px;
+    font-size: 20px;
+}
+
+.red {
+    color: #ff0000;
+}
+
+a.login {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    float: right;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.signin-as {
+    padding: 26px 0px;
+}
+
+a.signin-as {
+    font-size: 12px;
+    margin-top: 26px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+
+}
+
+.signin-as:hover {
+    text-decoration: none;
+}
+.menu-bg {
+    z-index: -1;
+    background-color: #fafafa;
+    font-size: 10px;
+
+}
+
+.add-product-btn {
+    position: absolute;
+}
+
+.fa-times{
+    font-size: 20px;
+}
+
+.product-menu {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.top-menu {
+    left: -34px;
+
+}
+
+/*menu-drop-down*/
+.navbar-collapse {
+    float: left;
+}
+
+nav ul ul {
+    display: none;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul {
+    padding: 0 5px;
+    list-style: none;
+    position: relative;
+}
+nav ul:after {
+    content: ""; clear: both; display: block;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block; padding: 25px 40px;
+    text-decoration: none;
+}
+nav ul li {
+    float: left;
+}
+
+nav ul ul li {
+    float: none;
+    text-align: center;
+}
+
+ul.menu-bg li a {
+    font-size: 12px;
+}
+nav ul ul {
+    position: absolute; top: 100%;
+}
+nav ul ul li a {
+    padding: 15px 40px;
+}
+nav ul ul ul {
+    position: absolute; left: 70%; top:0;
+}
+
+nav ul.dropdown-menu li {
+     float: none;
+}
+
+nav ul.dropdown-menu li a {
+    padding: 3px;
+    margin: 20px;
+    font-weight: bold;
+}

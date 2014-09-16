@@ -1,0 +1,28 @@
+<div class="blog-header">
+  <h1 class="blog-title">The SENS Blog</h1>
+
+  <div class="col-lg-9 col-md-9 col-sm-9">
+    <% @blogs.each do |p| %>
+        <div class="blog-post-title"><%= link_to p.title, "" %></div>
+        <div><%= p.created_at %></div>
+        <div><%= p.description %></div>
+    <% end %>
+    <div class="form-group">
+      <%= link_to 'Create a blog', new_blog_url, :class => 'btn btn-default' %>
+    </div>
+
+  </div>
+
+
+  <div class="col-lg-3 col-md-3 col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li><h2>Archives</h2></li>
+      <li class="active">
+        <a href="#">
+          <span class="badge pull-right">9</span>
+          August 2014
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

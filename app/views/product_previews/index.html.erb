@@ -1,0 +1,11 @@
+<h1>All Products</h1>
+<% @product_preview.each do |p| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 each-product">
+      <div class="each-product-content">
+        <div><%= link_to image_tag(p.picture_url(:thumb).to_s), product_preview_path(p) %></div>
+        <div><%= p.name %></div>
+        <div><%= "Price : #{p.price} baht" %></div>
+      </div>
+    </div>
+<% end %>
+<%= link_to 'Create Product', new_product_preview_url %>

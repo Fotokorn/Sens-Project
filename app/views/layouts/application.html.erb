@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Sens" %></title>
+  <%= csrf_meta_tags %>
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+  <![endif]-->
+
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <!-- For third-generation iPad with high-resolution Retina display: -->
+  <!-- Size should be 144 x 144 pixels -->
+  <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+  <!-- For iPhone with high-resolution Retina display: -->
+  <!-- Size should be 114 x 114 pixels -->
+  <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+  <!-- For first- and second-generation iPad: -->
+  <!-- Size should be 72 x 72 pixels -->
+  <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <!-- Size should be 57 x 57 pixels -->
+  <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+  <!-- For all other devices -->
+  <!-- Size should be 32 x 32 pixels -->
+  <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+  <%= javascript_include_tag "application" %>
+</head>
+<body>
+<div class="row">
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="header-logo col-lg-3 col-md-3 col-sm-3">
+        <a class="navbar-brand" href="<%= page_controllers_index_url %>">S<span class="red">E</span>NS Dessus
+          Dessous</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-responsive-collapse col-lg-7 col-md-7 col-sm-7 top-menu">
+        <nav class="cl-effect-18">
+          <ul>
+            <li><%= link_to 'New Stuff', page_controllers_index_url %></li>
+            <li><%= link_to 'Shop', product_previews_url %>
+              <ul class="menu-bg">
+                <li><%= link_to 'Men', product_previews_url %>
+                  <ul class="menu-bg">
+                    <li><%= link_to 'Top', product_previews_url %>
+                    <li><%= link_to 'Bottom', product_previews_url %>
+                  </ul>
+                </li>
+                <li><%= link_to 'Women', product_previews_url %>
+                  <ul class="menu-bg">
+                    <li><%= link_to 'Top', product_previews_url %>
+                    <li><%= link_to 'Dress', product_previews_url %>
+                    <li><%= link_to 'Bottom', product_previews_url %>
+                  </ul>
+                </li>
+                <li><%= link_to 'Stocklist', product_previews_url %></li>
+              </ul>
+            </li>
+            <li><%= link_to 'Feature', page_controllers_feature_url %>
+              <ul class="menu-bg">
+                <li><%= link_to 'Lookbook', products_url %></li>
+                <li><%= link_to 'Blog', blogs_url %></li>
+                <li><%= link_to 'Stars of the month', products_url %></li>
+                <li><%= link_to 'News', products_url %></li>
+                <li><%= link_to 'My account', products_url %></li>
+              </ul>
+            </li>
+            <li><%= link_to 'Contact Us', page_controllers_contact_url %>
+              <ul class="menu-bg">
+                <li><%= link_to 'Contact Us', page_controllers_contact_url %></li>
+                <li><%= link_to 'Shop Location', page_controllers_shop_location_url %></li>
+                <li><%= link_to 'Customer Service', page_controllers_customer_service_url %></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+        <% if current_user %>
+            <div class="dropdown navbar-right signin-as col-lg-2 col-md-2 col-sm-2">
+              Signed in as
+              <%= link_to '', :class => "dropdown-toggle red signin-as", "data-toggle" => "dropdown" do %>
+                  <%= current_user.username %> <span class="caret"></span>
+              <% end %>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'My Account', edit_user_registration %></li>
+                <li><%= link_to 'My Cart', product_previews_url %></li>
+                <li class="divider"></li>
+                <li><%= link_to 'Sign out', destroy_user_session_url, :method => :delete %></li>
+              </ul>
+            </div>
+        <% else %>
+          <div class="dropdown navbar-right signin-as col-lg-2 col-md-2 col-sm-2">
+            <%= link_to '', :class => "login dropdown-toggle", "data-toggle" => "dropdown" do %>
+                Login <% end %>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to 'Login', new_user_session_url %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_url %></li>
+              <li class="divider"></li>
+              <li><%= link_to 'Sign out', :method => :delete %></li>
+            </ul>
+          </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%= yield %>
+  </div>
+  <!--/row-->
+
+  <footer>
+    <p>&copy; sens dessus dessous 2014</p>
+  </footer>
+
+</div>
+<!-- /container -->
+
+</body>
+</html>
